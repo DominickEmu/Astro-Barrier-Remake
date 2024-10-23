@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpajlg3hi5ft3"]
+
+[ext_resource type="Script" path="res://scenes/targets/scripts/target_path.gd" id="1_p2af3"]
+[ext_resource type="PackedScene" uid="uid://bs1h0vft55j86" path="res://scenes/path/end_point.tscn" id="2_pi6fj"]
+
+[sub_resource type="Curve2D" id="Curve2D_bsah4"]
+resource_local_to_scene = true
+
+[node name="TargetPath" type="Path2D"]
+curve = SubResource("Curve2D_bsah4")
+script = ExtResource("1_p2af3")
+metadata/_edit_group_ = true
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -2
+width = 3.0
+default_color = Color(0.0117647, 0.0627451, 0.466667, 1)
+
+[node name="EndPoint" parent="." instance=ExtResource("2_pi6fj")]
+
+[node name="EndPoint2" parent="." instance=ExtResource("2_pi6fj")]

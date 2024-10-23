@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnsi0c8k6vbhc"]
+
+[ext_resource type="PackedScene" uid="uid://d4tgypbrr3sq" path="res://scenes/blocks/block.tscn" id="1_4syuv"]
+[ext_resource type="Texture2D" uid="uid://caieva53qe1vs" path="res://textures/blocks/medium block.png" id="2_5mtna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hm7j"]
+size = Vector2(36, 38)
+
+[node name="MediumBlock" instance=ExtResource("1_4syuv")]
+collision_mask = 2
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_5mtna")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_4hm7j")

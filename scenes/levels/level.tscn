@@ -1,0 +1,204 @@
+[gd_scene load_steps=9 format=3 uid="uid://usfjb35ks034"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7fwyd"]
+[ext_resource type="Texture2D" uid="uid://bx2lv2if7nsk" path="res://textures/ui/frame.png" id="1_gyjtr"]
+[ext_resource type="Script" path="res://scenes/levels/ui_layer.gd" id="2_ws3u8"]
+[ext_resource type="PackedScene" uid="uid://etlplja4yaan" path="res://scenes/player/player.tscn" id="3_33l7y"]
+[ext_resource type="Theme" uid="uid://c7cvjd6rtal7r" path="res://theme/arcade.tres" id="3_hgam4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryc2f"]
+size = Vector2(21, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn6rl"]
+size = Vector2(19, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1nvv"]
+size = Vector2(312, 20)
+
+[node name="Level" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_7fwyd")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_ws3u8")
+
+[node name="Frame" type="TextureRect" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gyjtr")
+metadata/_edit_lock_ = true
+
+[node name="LoadingPanel" type="Panel" parent="UILayer"]
+visible = false
+offset_left = 84.0
+offset_top = 110.0
+offset_right = 222.0
+offset_bottom = 202.0
+theme = ExtResource("3_hgam4")
+
+[node name="Title" type="Label" parent="UILayer/LoadingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109
+anchor_top = 0.141
+anchor_right = 0.92
+anchor_bottom = 0.228
+offset_left = -0.0420008
+offset_top = 0.0279999
+offset_right = 0.0400009
+offset_bottom = 0.0239983
+theme = ExtResource("3_hgam4")
+theme_override_font_sizes/font_size = 8
+text = "Current Score:"
+
+[node name="Score" type="Label" parent="UILayer/LoadingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.326
+anchor_right = 1.0
+anchor_bottom = 0.413
+offset_left = 1.0
+offset_top = 0.00799942
+offset_bottom = 0.0039978
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hgam4")
+theme_override_colors/font_color = Color(0.929412, 0.988235, 0.368627, 1)
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 1
+
+[node name="Loading" type="Label" parent="UILayer/LoadingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.62
+anchor_right = 1.0
+anchor_bottom = 0.88
+offset_top = -0.0400009
+offset_bottom = 0.0399933
+grow_horizontal = 2
+grow_vertical = 0
+text = "Loading next 
+level"
+horizontal_alignment = 1
+
+[node name="Labels" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lives" type="Label" parent="UILayer/Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.233
+anchor_top = 0.917
+anchor_right = 0.914
+anchor_bottom = 0.939
+offset_left = -0.133003
+offset_top = -0.120026
+offset_right = -0.114014
+offset_bottom = -0.0400391
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_hgam4")
+text = "Lives: 0"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="UILayer/Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.728
+anchor_top = 0.914
+anchor_right = 0.897
+anchor_bottom = 0.936
+offset_left = -0.128006
+offset_top = 0.959991
+offset_right = -0.997009
+offset_bottom = 1.03998
+theme = ExtResource("3_hgam4")
+text = "000"
+horizontal_alignment = 2
+
+[node name="Title" type="Label" parent="UILayer/Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.127
+anchor_top = 0.047
+anchor_right = 0.543
+anchor_bottom = 0.072
+offset_left = -0.227001
+offset_top = 0.0799999
+offset_right = -0.0270081
+offset_bottom = 0.079998
+grow_horizontal = 2
+theme = ExtResource("3_hgam4")
+text = "Astro Barrier"
+
+[node name="Level" type="Label" parent="UILayer/Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.767
+anchor_top = 0.044
+anchor_right = 0.9
+anchor_bottom = 0.072
+offset_left = -0.867004
+offset_top = 0.159999
+offset_right = -0.766998
+offset_bottom = 0.079998
+theme = ExtResource("3_hgam4")
+text = "L00"
+horizontal_alignment = 2
+
+[node name="BulletContainer" type="HBoxContainer" parent="UILayer"]
+anchors_preset = -1
+anchor_left = 0.123
+anchor_top = 0.917
+anchor_right = 0.393
+anchor_bottom = 0.944
+offset_left = 0.0999985
+offset_top = -0.120026
+offset_right = 0.0999985
+offset_bottom = 0.159973
+theme_override_constants/separation = -2
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(28.5, 298)
+shape = SubResource("RectangleShape2D_ryc2f")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(276.5, 296)
+shape = SubResource("RectangleShape2D_nn6rl")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(148, 14)
+shape = SubResource("RectangleShape2D_n1nvv")
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="PathsTargets" type="Node2D" parent="."]
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_33l7y")]
+position = Vector2(151, 298)

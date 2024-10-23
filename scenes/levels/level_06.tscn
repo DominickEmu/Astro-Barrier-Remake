@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://rft6xo44drlx"]
+
+[ext_resource type="PackedScene" uid="uid://usfjb35ks034" path="res://scenes/levels/level.tscn" id="1_ysflr"]
+[ext_resource type="PackedScene" uid="uid://dnsi0c8k6vbhc" path="res://scenes/blocks/medium_block.tscn" id="2_dkeir"]
+[ext_resource type="PackedScene" uid="uid://bpajlg3hi5ft3" path="res://scenes/path/target_path.tscn" id="2_t0l82"]
+[ext_resource type="PackedScene" uid="uid://b0jio4jxoctpa" path="res://scenes/targets/small_target.tscn" id="3_e4upi"]
+[ext_resource type="PackedScene" uid="uid://doadpp67vn7s2" path="res://scenes/targets/medium_target.tscn" id="4_kn5bk"]
+
+[sub_resource type="Curve2D" id="Curve2D_tqmff"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 51, 0, 0, 0, 0, 267, 51)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_hoi85"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 112, 109, 0, 0, 0, 0, 112, 191, 0, 0, 0, 0, 195, 191, 0, 0, 0, 0, 195, 109)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_601cj"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 188, 0, 0, 0, 0, 83, 188, 0, 0, 0, 0, 83, 226, 0, 0, 0, 0, 220, 226, 0, 0, 0, 0, 220, 188, 0, 0, 0, 0, 266, 188)
+}
+point_count = 6
+
+[node name="Level06" instance=ExtResource("1_ysflr")]
+lasers_left = 5
+
+[node name="TargetPath" parent="PathsTargets" index="0" instance=ExtResource("2_t0l82")]
+curve = SubResource("Curve2D_tqmff")
+
+[node name="SmallTarget" parent="PathsTargets/TargetPath" index="3" instance=ExtResource("3_e4upi")]
+position = Vector2(51.4421, 51)
+progress = 12.45
+
+[node name="TargetPath2" parent="PathsTargets" index="1" instance=ExtResource("2_t0l82")]
+curve = SubResource("Curve2D_hoi85")
+
+[node name="SmallTarget" parent="PathsTargets/TargetPath2" index="3" instance=ExtResource("3_e4upi")]
+position = Vector2(160.006, 191)
+progress = 130.0
+
+[node name="TargetPath3" parent="PathsTargets" index="2" instance=ExtResource("2_t0l82")]
+curve = SubResource("Curve2D_601cj")
+
+[node name="MediumTarget" parent="PathsTargets/TargetPath3" index="3" instance=ExtResource("4_kn5bk")]
+position = Vector2(220.073, 225.895)
+progress = 219.2
+speed = 130.0
+direction = -1
+
+[node name="MediumBlock" parent="Blocks" index="0" instance=ExtResource("2_dkeir")]
+position = Vector2(113, 90)
+
+[node name="MediumBlock2" parent="Blocks" index="1" instance=ExtResource("2_dkeir")]
+position = Vector2(195, 90)

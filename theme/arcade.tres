@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c7cvjd6rtal7r"]
+
+[ext_resource type="FontFile" uid="uid://cl3ypw47qylle" path="res://theme/fonts/PublicPixel-E447g.ttf" id="1_o37xd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emr4g"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+default_font = ExtResource("1_o37xd")
+default_font_size = 8
+Panel/styles/panel = SubResource("StyleBoxFlat_emr4g")

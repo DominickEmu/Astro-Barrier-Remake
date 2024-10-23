@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdqrt6mjq8mmk"]
+
+[ext_resource type="PackedScene" uid="uid://bpqggslft4fcd" path="res://scenes/targets/target.tscn" id="1_5el04"]
+[ext_resource type="Texture2D" uid="uid://wotj35g3rv84" path="res://textures/targets/large_targets.png" id="2_166bt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vtei"]
+radius = 11.0
+height = 34.0
+
+[node name="LargeTarget" instance=ExtResource("1_5el04")]
+
+[node name="Target" parent="." index="0"]
+collision_mask = 18
+
+[node name="CollisionShape2D" parent="Target" index="0"]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_6vtei")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_166bt")
+hframes = 2
+vframes = 2

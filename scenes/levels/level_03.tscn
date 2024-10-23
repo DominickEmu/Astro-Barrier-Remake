@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://gxikesh4smq1"]
+
+[ext_resource type="PackedScene" uid="uid://usfjb35ks034" path="res://scenes/levels/level.tscn" id="1_i67lo"]
+[ext_resource type="PackedScene" uid="uid://bpajlg3hi5ft3" path="res://scenes/path/target_path.tscn" id="2_6ormd"]
+[ext_resource type="PackedScene" uid="uid://cdqrt6mjq8mmk" path="res://scenes/targets/large_target.tscn" id="3_7g1gi"]
+[ext_resource type="PackedScene" uid="uid://doadpp67vn7s2" path="res://scenes/targets/medium_target.tscn" id="4_p62bv"]
+[ext_resource type="PackedScene" uid="uid://b0jio4jxoctpa" path="res://scenes/targets/small_target.tscn" id="5_cu14f"]
+
+[sub_resource type="Curve2D" id="Curve2D_og2ft"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 66, 0, 0, 0, 0, 267, 66)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_gmpnv"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 159, 0, 0, 0, 0, 267, 159)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_tnpnf"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 195, 0, 0, 0, 0, 267, 195)
+}
+point_count = 2
+
+[node name="Level03" instance=ExtResource("1_i67lo")]
+lasers_left = 7
+
+[node name="TargetPath" parent="PathsTargets" index="0" instance=ExtResource("2_6ormd")]
+curve = SubResource("Curve2D_og2ft")
+
+[node name="EndPoint" parent="PathsTargets/TargetPath" index="1"]
+position = Vector2(39, 66)
+
+[node name="EndPoint2" parent="PathsTargets/TargetPath" index="2"]
+position = Vector2(39, 66)
+
+[node name="LargeTarget" parent="PathsTargets/TargetPath" index="3" instance=ExtResource("3_7g1gi")]
+position = Vector2(61.2264, 66)
+progress = 22.25
+speed = 130.0
+
+[node name="TargetPath2" parent="PathsTargets" index="1" instance=ExtResource("2_6ormd")]
+curve = SubResource("Curve2D_gmpnv")
+
+[node name="MediumTarget" parent="PathsTargets/TargetPath2" index="3" instance=ExtResource("4_p62bv")]
+position = Vector2(97.7891, 159)
+progress = 58.8
+speed = 130.0
+
+[node name="TargetPath3" parent="PathsTargets" index="2" instance=ExtResource("2_6ormd")]
+curve = SubResource("Curve2D_tnpnf")
+
+[node name="SmallTarget" parent="PathsTargets/TargetPath3" index="3" instance=ExtResource("5_cu14f")]
+position = Vector2(52.2226, 195)
+progress = 13.25
+
+[editable path="PathsTargets/TargetPath"]
+[editable path="PathsTargets/TargetPath/EndPoint"]

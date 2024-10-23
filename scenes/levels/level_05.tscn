@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmag84yrr06ya"]
+
+[ext_resource type="PackedScene" uid="uid://usfjb35ks034" path="res://scenes/levels/level.tscn" id="1_xhg6a"]
+[ext_resource type="PackedScene" uid="uid://bpajlg3hi5ft3" path="res://scenes/path/target_path.tscn" id="2_vehw0"]
+[ext_resource type="PackedScene" uid="uid://b0jio4jxoctpa" path="res://scenes/targets/small_target.tscn" id="3_jtcdb"]
+[ext_resource type="PackedScene" uid="uid://cdqrt6mjq8mmk" path="res://scenes/targets/large_target.tscn" id="4_ixne5"]
+[ext_resource type="PackedScene" uid="uid://dlu4qmxp2jk1j" path="res://scenes/blocks/large_block.tscn" id="5_37jo6"]
+
+[sub_resource type="Curve2D" id="Curve2D_x6i50"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 102, 30, 0, 0, 0, 0, 102, 115, 0, 0, 0, 0, 205, 115, 0, 0, 0, 0, 205, 31)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_j1sl7"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 66, 31, 0, 0, 0, 0, 66, 146, 0, 0, 0, 0, 237, 146, 0, 0, 0, 0, 237, 30)
+}
+point_count = 4
+
+[node name="Level05" instance=ExtResource("1_xhg6a")]
+lasers_left = 5
+
+[node name="TargetPath" parent="PathsTargets" index="0" instance=ExtResource("2_vehw0")]
+curve = SubResource("Curve2D_x6i50")
+
+[node name="SmallTarget" parent="PathsTargets/TargetPath" index="3" instance=ExtResource("3_jtcdb")]
+position = Vector2(205, 48.1416)
+progress = 254.837
+speed = 80.0
+direction = -1
+
+[node name="TargetPath2" parent="PathsTargets" index="1" instance=ExtResource("2_vehw0")]
+curve = SubResource("Curve2D_j1sl7")
+
+[node name="LargeTarget" parent="PathsTargets/TargetPath2" index="3" instance=ExtResource("4_ixne5")]
+position = Vector2(66, 47.7122)
+progress = 16.75
+speed = 160.0
+
+[node name="LargeBlock" parent="Blocks" index="0" instance=ExtResource("5_37jo6")]
+position = Vector2(82, 188)
+
+[node name="LargeBlock2" parent="Blocks" index="1" instance=ExtResource("5_37jo6")]
+position = Vector2(224, 188)

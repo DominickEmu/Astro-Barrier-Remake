@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0jio4jxoctpa"]
+
+[ext_resource type="PackedScene" uid="uid://bpqggslft4fcd" path="res://scenes/targets/target.tscn" id="1_xyxvy"]
+[ext_resource type="Texture2D" uid="uid://clisoqjilni1j" path="res://textures/targets/small_targets.png" id="2_m3mxy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjmhg"]
+radius = 8.0
+
+[node name="SmallTarget" instance=ExtResource("1_xyxvy")]
+
+[node name="Target" parent="." index="0"]
+collision_mask = 18
+
+[node name="CollisionShape2D" parent="Target" index="0"]
+shape = SubResource("CircleShape2D_qjmhg")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_m3mxy")
+hframes = 2
+vframes = 2

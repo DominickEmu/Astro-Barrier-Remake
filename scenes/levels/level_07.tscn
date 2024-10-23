@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://2oau6r8gcs1f"]
+
+[ext_resource type="PackedScene" uid="uid://usfjb35ks034" path="res://scenes/levels/level.tscn" id="1_60asb"]
+[ext_resource type="PackedScene" uid="uid://bpajlg3hi5ft3" path="res://scenes/path/target_path.tscn" id="2_r0bv2"]
+[ext_resource type="PackedScene" uid="uid://doadpp67vn7s2" path="res://scenes/targets/medium_target.tscn" id="3_keksr"]
+[ext_resource type="PackedScene" uid="uid://dnsi0c8k6vbhc" path="res://scenes/blocks/medium_block.tscn" id="3_m54dd"]
+
+[sub_resource type="Curve2D" id="Curve2D_yh4dl"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 77, 0, 0, 0, 0, 267, 77)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_aehxl"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 169, 0, 0, 0, 0, 89, 169, 0, 0, 0, 0, 89, 138, 0, 0, 0, 0, 220, 138, 0, 0, 0, 0, 220, 169, 0, 0, 0, 0, 267, 169)
+}
+point_count = 6
+
+[node name="Level07" instance=ExtResource("1_60asb")]
+lasers_left = 4
+
+[node name="BulletContainer" parent="UILayer" index="3"]
+anchor_left = 0.127
+offset_left = -0.100002
+
+[node name="TargetPath" parent="PathsTargets" index="0" instance=ExtResource("2_r0bv2")]
+curve = SubResource("Curve2D_yh4dl")
+
+[node name="MediumTarget" parent="PathsTargets/TargetPath" index="3" instance=ExtResource("3_keksr")]
+position = Vector2(56.2822, 77)
+progress = 17.3
+speed = 130.0
+state = 2
+
+[node name="TargetPath2" parent="PathsTargets" index="1" instance=ExtResource("2_r0bv2")]
+curve = SubResource("Curve2D_aehxl")
+
+[node name="MediumTarget" parent="PathsTargets/TargetPath2" index="3" instance=ExtResource("3_keksr")]
+position = Vector2(56.273, 169)
+progress = 17.3
+speed = 130.0
+
+[node name="MediumBlock" parent="Blocks" index="0" instance=ExtResource("3_m54dd")]
+position = Vector2(101, 207)
+
+[node name="MediumBlock2" parent="Blocks" index="1" instance=ExtResource("3_m54dd")]
+position = Vector2(206, 207)

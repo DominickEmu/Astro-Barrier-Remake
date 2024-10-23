@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqsic37le7vw"]
+
+[ext_resource type="Theme" uid="uid://c7cvjd6rtal7r" path="res://theme/arcade.tres" id="1_c4xws"]
+[ext_resource type="Script" path="res://scenes/effects/1up_effect.gd" id="1_wmr4d"]
+
+[node name="1UPEffect" type="Node2D"]
+script = ExtResource("1_wmr4d")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 17.0
+offset_bottom = 5.0
+theme = ExtResource("1_c4xws")
+theme_override_colors/font_color = Color(1, 1, 0, 0.886275)
+theme_override_font_sizes/font_size = 8
+text = "1-UP"
