@@ -20,7 +20,7 @@ var height: int
 
 func _ready():
 	Global.targets += 1
-	change_sprite()
+	update_sprite()
 
 func _process(delta):
 	if state != TargetState.DISABLED:
@@ -31,34 +31,33 @@ func hit():
 		if Global.first_hit:
 			Global.first_hit = false
 		
-		change_state(TargetState.DISABLED)
+		change_state(TargetState.DISABLED, 10)
 	
 	elif state == TargetState.EXTRA_LIFE:
 		if Global.first_hit:
 			Global.first_hit = false
 			get_life.emit(global_position)
 		
-		change_state(TargetState.DISABLED)
+		change_state(TargetState.DISABLED, 10)
 	
 	elif state == TargetState.TWO_HIT:
 		if Global.first_hit:
 			Global.first_hit = false
 		
-		change_state(TargetState.ONE_HIT)
-		change_sprite()
+		change_state(TargetState.ONE_HIT, 15)
 	
 
-func change_sprite():
+func update_sprite():
 	$Sprite2D.frame = state
 
-func change_state(to_state: TargetState):
+func change_state(to_state: TargetState, points: int):
 	state = to_state
 	
-	Global.score += 10
+	Global.score += points
 	if state == TargetState.DISABLED:
 		Global.targets -= 1
 	
-	change_sprite()
+	update_sprite()
 
 func _on_target_body_entered(_path_end):
 	direction *= -1

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ovtd3pxrjq2p"]
+
+[ext_resource type="Texture2D" uid="uid://1rtgw8wbpvlv" path="res://textures/targets/active switch.png" id="1_afx7x"]
+[ext_resource type="Script" path="res://scenes/targets/scripts/active_switch.gd" id="1_womch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op6bk"]
+size = Vector2(16, 16)
+
+[node name="ActiveSwitch" type="Area2D" groups=["Switch"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_womch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_afx7x")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_op6bk")

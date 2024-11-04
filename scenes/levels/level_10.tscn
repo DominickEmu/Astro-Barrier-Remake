@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch5f0cxppqu6r"]
+[gd_scene load_steps=13 format=3 uid="uid://ch5f0cxppqu6r"]
 
 [ext_resource type="PackedScene" uid="uid://usfjb35ks034" path="res://scenes/levels/level.tscn" id="1_y6k8o"]
 [ext_resource type="PackedScene" uid="uid://bpajlg3hi5ft3" path="res://scenes/path/target_path.tscn" id="2_gl1f4"]
 [ext_resource type="PackedScene" uid="uid://dnsi0c8k6vbhc" path="res://scenes/blocks/medium_block.tscn" id="3_ajw2y"]
 [ext_resource type="PackedScene" uid="uid://doadpp67vn7s2" path="res://scenes/targets/medium_target.tscn" id="3_r4huu"]
+[ext_resource type="PackedScene" uid="uid://b0jio4jxoctpa" path="res://scenes/targets/small_target.tscn" id="4_k65k6"]
 [ext_resource type="PackedScene" uid="uid://bs1h0vft55j86" path="res://scenes/path/end_point.tscn" id="4_wfrml"]
+[ext_resource type="PackedScene" uid="uid://dlu2ixmib7ah4" path="res://scenes/blocks/small_block.tscn" id="7_mjq6x"]
 
 [sub_resource type="Curve2D" id="Curve2D_x14rq"]
 resource_local_to_scene = true
@@ -13,7 +15,36 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve2D" id="Curve2D_6fnci"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 78, 129, 0, 0, 0, 0, 55, 129, 0, 0, 0, 0, 55, 92, 0, 0, 0, 0, 119, 92, 0, 0, 0, 0, 119, 129, 0, 0, 0, 0, 94, 129)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_ljpou"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 78, 187, 0, 0, 0, 0, 54, 187, 0, 0, 0, 0, 54, 151, 0, 0, 0, 0, 118, 151, 0, 0, 0, 0, 118, 187, 0, 0, 0, 0, 94, 187)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_gj7ns"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 78, 187, 0, 0, 0, 0, 54, 187, 0, 0, 0, 0, 54, 151, 0, 0, 0, 0, 118, 151, 0, 0, 0, 0, 118, 187, 0, 0, 0, 0, 94, 187)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_1qo41"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 78, 187, 0, 0, 0, 0, 54, 187, 0, 0, 0, 0, 54, 151, 0, 0, 0, 0, 118, 151, 0, 0, 0, 0, 118, 187, 0, 0, 0, 0, 94, 187)
+}
+point_count = 6
+
 [node name="Level10" instance=ExtResource("1_y6k8o")]
+lasers_left = 8
 
 [node name="TargetPath" parent="PathsTargets" index="0" instance=ExtResource("2_gl1f4")]
 position = Vector2(0, -7.08333)
@@ -21,9 +52,43 @@ scale = Vector2(1, 1.10417)
 curve = SubResource("Curve2D_x14rq")
 
 [node name="MediumTarget" parent="PathsTargets/TargetPath" index="3" instance=ExtResource("3_r4huu")]
-position = Vector2(56.0741, 68)
-progress = 17.1
+position = Vector2(55.2581, 68)
+scale = Vector2(1, 0.905658)
+progress = 16.3
 state = 2
+
+[node name="TargetPath2" parent="PathsTargets" index="1" instance=ExtResource("2_gl1f4")]
+curve = SubResource("Curve2D_6fnci")
+
+[node name="SmallTarget" parent="PathsTargets/TargetPath2" index="3" instance=ExtResource("4_k65k6")]
+position = Vector2(55.314, 129.082)
+progress = 22.5
+
+[node name="TargetPath3" parent="PathsTargets" index="2" instance=ExtResource("2_gl1f4")]
+position = Vector2(1, 8)
+curve = SubResource("Curve2D_ljpou")
+
+[node name="SmallTarget" parent="PathsTargets/TargetPath3" index="3" instance=ExtResource("4_k65k6")]
+position = Vector2(118.135, 151.106)
+progress = 124.2
+
+[node name="TargetPath4" parent="PathsTargets" index="3" instance=ExtResource("2_gl1f4")]
+position = Vector2(133, -59)
+curve = SubResource("Curve2D_gj7ns")
+
+[node name="SmallTarget" parent="PathsTargets/TargetPath4" index="3" instance=ExtResource("4_k65k6")]
+position = Vector2(107.368, 187)
+progress = 170.65
+direction = -1
+
+[node name="TargetPath5" parent="PathsTargets" index="4" instance=ExtResource("2_gl1f4")]
+position = Vector2(135, 9)
+curve = SubResource("Curve2D_1qo41")
+
+[node name="SmallTarget" parent="PathsTargets/TargetPath5" index="3" instance=ExtResource("4_k65k6")]
+position = Vector2(53.8438, 151.134)
+progress = 59.75
+direction = -1
 
 [node name="MediumBlock" parent="Blocks" index="0" instance=ExtResource("3_ajw2y")]
 position = Vector2(153, 193)
@@ -35,5 +100,17 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" parent="Blocks/EndPoint/StaticBody2D" index="0"]
 disabled = true
+
+[node name="SmallBlock" parent="Blocks" index="2" instance=ExtResource("7_mjq6x")]
+position = Vector2(86, 129)
+
+[node name="SmallBlock2" parent="Blocks" index="3" instance=ExtResource("7_mjq6x")]
+position = Vector2(87, 195)
+
+[node name="SmallBlock3" parent="Blocks" index="4" instance=ExtResource("7_mjq6x")]
+position = Vector2(219, 128)
+
+[node name="SmallBlock4" parent="Blocks" index="5" instance=ExtResource("7_mjq6x")]
+position = Vector2(221, 196)
 
 [editable path="Blocks/EndPoint"]

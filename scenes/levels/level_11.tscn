@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://ds1a852qe0df"]
+
+[ext_resource type="PackedScene" uid="uid://usfjb35ks034" path="res://scenes/levels/level.tscn" id="1_nlld2"]
+[ext_resource type="PackedScene" uid="uid://bpajlg3hi5ft3" path="res://scenes/path/target_path.tscn" id="2_00b5h"]
+[ext_resource type="PackedScene" uid="uid://n5a6dmq0urgu" path="res://scenes/blocks/med_active_block.tscn" id="2_8lb8i"]
+[ext_resource type="PackedScene" uid="uid://doadpp67vn7s2" path="res://scenes/targets/medium_target.tscn" id="3_88i10"]
+[ext_resource type="PackedScene" uid="uid://ovtd3pxrjq2p" path="res://scenes/targets/active_switch.tscn" id="3_mrrpu"]
+
+[sub_resource type="Curve2D" id="Curve2D_7s1lh"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 120, 30, 0, 0, 0, 0, 120, 159)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_r6561"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 178, 30, 0, 0, 0, 0, 178, 159)
+}
+point_count = 2
+
+[node name="Level11" instance=ExtResource("1_nlld2")]
+lasers_left = 4
+
+[node name="TargetPath" parent="PathsTargets" index="0" instance=ExtResource("2_00b5h")]
+curve = SubResource("Curve2D_7s1lh")
+
+[node name="MediumTarget" parent="PathsTargets/TargetPath" index="3" instance=ExtResource("3_88i10")]
+position = Vector2(120, 139.987)
+progress = 109.95
+direction = -1
+
+[node name="TargetPath2" parent="PathsTargets" index="1" instance=ExtResource("2_00b5h")]
+position = Vector2(2, 0)
+curve = SubResource("Curve2D_r6561")
+
+[node name="MediumTarget" parent="PathsTargets/TargetPath2" index="3" instance=ExtResource("3_88i10")]
+position = Vector2(178, 50.2468)
+progress = 20.25
+
+[node name="MedActiveBlock" parent="Blocks" index="0" instance=ExtResource("2_8lb8i")]
+position = Vector2(121, 179)
+
+[node name="MedActiveBlock2" parent="Blocks" index="1" instance=ExtResource("2_8lb8i")]
+position = Vector2(180, 179)
+
+[node name="ActiveSwitch" parent="Misc" index="0" instance=ExtResource("3_mrrpu")]
+position = Vector2(151, 58)

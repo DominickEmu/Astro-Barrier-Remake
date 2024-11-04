@@ -8,11 +8,13 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print("hit ", body)
 	queue_free()
 
 func _on_area_entered(area):
 	if area.get_parent().is_in_group("Target"):
 		area.get_parent().hit()
+	elif area.is_in_group("Switch"):
+		print(area)
+		area.hit()
 	
 	queue_free()

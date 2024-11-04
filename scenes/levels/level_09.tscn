@@ -60,5 +60,5 @@ position = Vector2(67, 69)
 [node name="MediumBlock2" parent="Blocks" index="1" instance=ExtResource("3_actxn")]
 position = Vector2(143, 68)
 
-[node name="Player" parent="." index="6"]
+[node name="Player" parent="." index="7"]
 speed = 80

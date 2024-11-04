@@ -93,6 +93,7 @@ anchor_bottom = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Lives" type="Label" parent="UILayer/Labels"]
 layout_mode = 1
@@ -199,6 +200,8 @@ shape = SubResource("RectangleShape2D_n1nvv")
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="Effects" type="Node2D" parent="."]
+
+[node name="Misc" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_33l7y")]
 position = Vector2(151, 298)
