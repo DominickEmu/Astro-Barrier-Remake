@@ -37,4 +37,5 @@ func new_level():
 	get_tree().paused = false
 	
 	level = get_tree().get_current_scene().name.to_int() + 1
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/level_%02d.tscn" % (level))
+	if ResourceLoader.exists("res://scenes/levels/level_%02d.tscn" % (level)):
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/level_%02d.tscn" % (level))

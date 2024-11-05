@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bssyc4e4xdvm2"]
+
+[ext_resource type="PackedScene" uid="uid://usfjb35ks034" path="res://scenes/levels/level.tscn" id="1_h7dpx"]
+[ext_resource type="PackedScene" uid="uid://dnsi0c8k6vbhc" path="res://scenes/blocks/medium_block.tscn" id="2_rxcqd"]
+
+[node name="Level17" instance=ExtResource("1_h7dpx")]
+
+[node name="MediumBlock" parent="Blocks" index="0" instance=ExtResource("2_rxcqd")]
+position = Vector2(149, 201)
+
+[node name="MediumBlock2" parent="Blocks" index="1" instance=ExtResource("2_rxcqd")]
+position = Vector2(149, 161)
+
+[node name="MediumBlock3" parent="Blocks" index="2" instance=ExtResource("2_rxcqd")]
+position = Vector2(149, 121)
