@@ -5,6 +5,10 @@
 
 [sub_resource type="Curve2D" id="Curve2D_bsah4"]
 resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(16.049, -41.8443, -16.049, 41.8443, 248, 147, 0, 0, 0, 0, 203, 153, -24.7487, 1.76777, 24.7487, -1.76777, 225, 129, 0, 0, 0, 0, 249, 146)
+}
+point_count = 4
 
 [node name="TargetPath" type="Path2D"]
 curve = SubResource("Curve2D_bsah4")
@@ -13,9 +17,16 @@ metadata/_edit_group_ = true
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -2
+texture_filter = 3
 width = 3.0
 default_color = Color(0.0117647, 0.0627451, 0.466667, 1)
+begin_cap_mode = 1
+end_cap_mode = 1
 
 [node name="EndPoint" parent="." instance=ExtResource("2_pi6fj")]
+position = Vector2(248, 147)
+rotation = 1.93703
 
 [node name="EndPoint2" parent="." instance=ExtResource("2_pi6fj")]
+position = Vector2(248, 147)
+rotation = 1.93703

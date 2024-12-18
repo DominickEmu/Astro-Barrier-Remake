@@ -20,6 +20,7 @@ var height: int
 
 func _ready():
 	Global.targets += 1
+	loop = get_parent().looping
 	update_sprite()
 
 func _process(delta):
