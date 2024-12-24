@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn6v1puipbywg"]
+
+[ext_resource type="Texture2D" uid="uid://bx2lv2if7nsk" path="res://textures/ui/frame.png" id="1_0tq7t"]
+[ext_resource type="Script" path="res://scenes/ui/title.gd" id="1_q7dgm"]
+[ext_resource type="Theme" uid="uid://c7cvjd6rtal7r" path="res://theme/arcade.tres" id="2_uobxu"]
+[ext_resource type="Texture2D" uid="uid://cq8f74fxi8deg" path="res://textures/ui/splash.png" id="4_f5w2y"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q7dgm")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Frame" type="TextureRect" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0tq7t")
+metadata/_edit_lock_ = true
+
+[node name="Labels" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="UILayer/Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_top = 0.028
+anchor_right = 0.894
+anchor_bottom = 0.069
+offset_left = 0.0739975
+offset_top = -1.08
+offset_right = -0.0940247
+offset_bottom = 0.159998
+grow_horizontal = 2
+theme = ExtResource("2_uobxu")
+theme_override_font_sizes/font_size = 16
+text = "Astro Barrier"
+horizontal_alignment = 1
+
+[node name="StartBtn" type="Button" parent="UILayer"]
+anchors_preset = -1
+anchor_left = 0.347
+anchor_top = 0.764
+anchor_right = 0.677
+anchor_bottom = 0.842
+offset_left = -0.0999985
+offset_top = -0.0400085
+offset_right = -0.100006
+offset_bottom = -0.120026
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_uobxu")
+theme_override_font_sizes/font_size = 8
+text = "Start"
+
+[node name="Splash" type="Sprite2D" parent="."]
+position = Vector2(166, 185)
+texture = ExtResource("4_f5w2y")
+
+[connection signal="pressed" from="UILayer/StartBtn" to="." method="_on_start_btn_pressed"]

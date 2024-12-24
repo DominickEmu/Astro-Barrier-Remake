@@ -1,10 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://usfjb35ks034"]
+[gd_scene load_steps=12 format=3 uid="uid://usfjb35ks034"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7fwyd"]
 [ext_resource type="Texture2D" uid="uid://bx2lv2if7nsk" path="res://textures/ui/frame.png" id="1_gyjtr"]
-[ext_resource type="Script" path="res://scenes/levels/ui_layer.gd" id="2_ws3u8"]
 [ext_resource type="PackedScene" uid="uid://etlplja4yaan" path="res://scenes/player/player.tscn" id="3_33l7y"]
 [ext_resource type="Theme" uid="uid://c7cvjd6rtal7r" path="res://theme/arcade.tres" id="3_hgam4"]
+[ext_resource type="Texture2D" uid="uid://dbluwner3qowr" path="res://textures/ui/panel.png" id="5_8xlvc"]
+[ext_resource type="AudioStream" uid="uid://d8mw6743d7o1" path="res://sfx/win.wav" id="6_5t56w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gxqd"]
+size = Vector2(150, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqx0b"]
+size = Vector2(150, 240)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryc2f"]
 size = Vector2(21, 20)
@@ -20,7 +27,6 @@ texture_filter = 1
 script = ExtResource("1_7fwyd")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
-script = ExtResource("2_ws3u8")
 
 [node name="Frame" type="TextureRect" parent="UILayer"]
 anchors_preset = 15
@@ -31,13 +37,19 @@ grow_vertical = 2
 texture = ExtResource("1_gyjtr")
 metadata/_edit_lock_ = true
 
-[node name="LoadingPanel" type="Panel" parent="UILayer"]
+[node name="LoadingPanel" type="NinePatchRect" parent="UILayer"]
 visible = false
-offset_left = 84.0
-offset_top = 110.0
-offset_right = 222.0
-offset_bottom = 202.0
+offset_left = 86.0
+offset_top = 111.0
+offset_right = 220.0
+offset_bottom = 203.0
 theme = ExtResource("3_hgam4")
+texture = ExtResource("5_8xlvc")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+axis_stretch_horizontal = 1
 
 [node name="Title" type="Label" parent="UILayer/LoadingPanel"]
 layout_mode = 1
@@ -83,6 +95,50 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Loading next 
 level"
+horizontal_alignment = 1
+
+[node name="RestartingPanel" type="NinePatchRect" parent="UILayer"]
+visible = false
+offset_left = 86.0
+offset_top = 111.0
+offset_right = 220.0
+offset_bottom = 203.0
+theme = ExtResource("3_hgam4")
+texture = ExtResource("5_8xlvc")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Title" type="Label" parent="UILayer/RestartingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109
+anchor_top = 0.141
+anchor_right = 0.92
+anchor_bottom = 0.228
+offset_left = -0.0420008
+offset_top = 0.0279999
+offset_right = 0.0400009
+offset_bottom = 0.0239983
+theme = ExtResource("3_hgam4")
+theme_override_font_sizes/font_size = 8
+text = "Level lost:"
+horizontal_alignment = 1
+
+[node name="Loading" type="Label" parent="UILayer/RestartingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.467
+anchor_right = 0.993
+anchor_bottom = 0.674
+offset_left = 4.0
+offset_top = 0.0359993
+offset_right = 0.966003
+offset_bottom = -0.00800323
+grow_horizontal = 2
+grow_vertical = 0
+text = "Restarting..."
 horizontal_alignment = 1
 
 [node name="Labels" type="Control" parent="UILayer"]
@@ -169,6 +225,24 @@ offset_right = 0.0999985
 offset_bottom = 0.159973
 theme_override_constants/separation = -2
 
+[node name="TouchControls" type="CanvasLayer" parent="."]
+
+[node name="RightBtn" type="TouchScreenButton" parent="TouchControls"]
+position = Vector2(225, 120)
+shape = SubResource("RectangleShape2D_2gxqd")
+shape_visible = false
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="LeftBtn" type="TouchScreenButton" parent="TouchControls"]
+position = Vector2(75, 120)
+shape = SubResource("RectangleShape2D_bqx0b")
+shape_visible = false
+passby_press = true
+action = "left"
+visibility_mode = 1
+
 [node name="Borders" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
@@ -205,3 +279,7 @@ shape = SubResource("RectangleShape2D_n1nvv")
 
 [node name="Player" parent="." instance=ExtResource("3_33l7y")]
 position = Vector2(151, 298)
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_5t56w")

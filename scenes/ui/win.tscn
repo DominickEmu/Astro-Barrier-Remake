@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh2h2v2dw1xa5"]
+
+[ext_resource type="Texture2D" uid="uid://bx2lv2if7nsk" path="res://textures/ui/frame.png" id="1_2nrog"]
+[ext_resource type="Script" path="res://scenes/ui/game_end.gd" id="1_penm6"]
+[ext_resource type="Texture2D" uid="uid://nwaxhgryhqjl" path="res://textures/player/player_ship.png" id="2_hw7se"]
+[ext_resource type="Theme" uid="uid://c7cvjd6rtal7r" path="res://theme/arcade.tres" id="3_ogkxr"]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_penm6")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Frame" type="TextureRect" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2nrog")
+metadata/_edit_lock_ = true
+
+[node name="ShipSplash" type="TextureRect" parent="UILayer"]
+anchors_preset = -1
+anchor_left = 0.446667
+anchor_top = 0.344444
+anchor_right = 0.563333
+anchor_bottom = 0.441667
+texture = ExtResource("2_hw7se")
+metadata/_edit_use_anchors_ = true
+
+[node name="Labels" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="UILayer/Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_top = 0.028
+anchor_right = 0.894
+anchor_bottom = 0.069
+offset_left = 0.0739975
+offset_top = -1.08
+offset_right = -0.0940247
+offset_bottom = 0.159998
+grow_horizontal = 2
+theme = ExtResource("3_ogkxr")
+theme_override_font_sizes/font_size = 16
+text = "Astro Barrier"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="UILayer/Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.129568
+anchor_top = 0.0833333
+anchor_right = 0.887043
+anchor_bottom = 0.883333
+theme = ExtResource("3_ogkxr")
+text = "A WIN IS YOU ARE!
+HIGHSCORE: "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RestartBtn" type="Button" parent="UILayer"]
+anchors_preset = -1
+anchor_left = 0.347
+anchor_top = 0.764
+anchor_right = 0.677
+anchor_bottom = 0.842
+offset_left = -0.0999985
+offset_top = -0.0400085
+offset_right = -0.100006
+offset_bottom = -0.120026
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_ogkxr")
+theme_override_font_sizes/font_size = 8
+text = "Restart"
+
+[connection signal="pressed" from="UILayer/RestartBtn" to="." method="_on_restart_btn_pressed"]

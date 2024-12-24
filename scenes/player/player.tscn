@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://etlplja4yaan"]
+[gd_scene load_steps=5 format=3 uid="uid://etlplja4yaan"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_7beo7"]
 [ext_resource type="Texture2D" uid="uid://nwaxhgryhqjl" path="res://textures/player/player_ship.png" id="1_tljo4"]
+[ext_resource type="AudioStream" uid="uid://2p65t0vnmbra" path="res://sfx/laser shoot.wav" id="3_ncp0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej3m2"]
 size = Vector2(24, 9)
@@ -19,3 +20,9 @@ shape = SubResource("RectangleShape2D_ej3m2")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
 texture = ExtResource("1_tljo4")
+
+[node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_ncp0b")
+volume_db = -8.29
+pitch_scale = 0.51

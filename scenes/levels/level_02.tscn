@@ -5,21 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://doadpp67vn7s2" path="res://scenes/targets/medium_target.tscn" id="3_iosps"]
 [ext_resource type="PackedScene" uid="uid://dnsi0c8k6vbhc" path="res://scenes/blocks/medium_block.tscn" id="4_qsure"]
 
-[sub_resource type="Curve2D" id="Curve2D_8unjl"]
+[sub_resource type="Curve2D" id="Curve2D_gbopa"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 0, 0, 0, 0, 0, 68, -32, 0, 0, 0, 0, 156, -32, 0, 0, 0, 0, 156, 0, 0, 0, 0, 0, 228, 0)
 }
 point_count = 6
 
-[sub_resource type="Curve2D" id="Curve2D_genge"]
+[sub_resource type="Curve2D" id="Curve2D_cq0lm"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 39, 123, 0, 0, 0, 0, 267, 123)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_pnblh"]
+[sub_resource type="Curve2D" id="Curve2D_tqd5d"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 68, 0, 0, 0, 0, 0, 68, 30, 0, 0, 0, 0, 156, 30, 0, 0, 0, 0, 156, 0, 0, 0, 0, 0, 228, 0)
@@ -31,31 +31,33 @@ lasers_left = 7
 
 [node name="TargetPath" parent="PathsTargets" index="0" instance=ExtResource("2_pogd8")]
 position = Vector2(39, 196)
-curve = SubResource("Curve2D_8unjl")
+curve = SubResource("Curve2D_gbopa")
 
 [node name="MediumTarget" parent="PathsTargets/TargetPath" index="3" instance=ExtResource("3_iosps")]
-position = Vector2(15.9945, 0)
+position = Vector2(19.2891, 0)
+progress = 19.3
 speed = 110.0
 
 [node name="TargetPath2" parent="PathsTargets" index="1" instance=ExtResource("2_pogd8")]
 position = Vector2(0, 8)
-curve = SubResource("Curve2D_genge")
+curve = SubResource("Curve2D_cq0lm")
 
 [node name="MediumTarget" parent="PathsTargets/TargetPath2" index="3" instance=ExtResource("3_iosps")]
-position = Vector2(54.9741, 123)
+position = Vector2(60.0982, 123)
+progress = 21.1
 speed = 110.0
 
 [node name="TargetPath3" parent="PathsTargets" index="2" instance=ExtResource("2_pogd8")]
 position = Vector2(39, 65)
-curve = SubResource("Curve2D_pnblh")
+curve = SubResource("Curve2D_tqd5d")
 
 [node name="MediumTarget" parent="PathsTargets/TargetPath3" index="3" instance=ExtResource("3_iosps")]
-position = Vector2(155.656, 30.2489)
-progress = 185.45
+position = Vector2(155.54, 30.2881)
+progress = 185.3
 speed = 110.0
 
 [node name="MediumBlock" parent="Blocks" index="0" instance=ExtResource("4_qsure")]
 position = Vector2(151, 198)
 
-[node name="Player" parent="." index="6"]
+[node name="Player" parent="." index="7"]
 speed = 80

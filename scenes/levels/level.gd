@@ -12,11 +12,13 @@ func _ready():
 	Global.connect("change_lives_ui", change_lives)
 	Global.connect("change_score_ui", change_score)
 	Global.connect("display_loading", display_loading)
+	Global.connect("display_restarting", display_restarting)
 	
 	change_lives()
 	change_score()
 	
 	$Player.connect("shoot_laser", _on_player_shoot)
+	
 	$UILayer/Labels/Level.text = "L%02d" % name.to_int()
 	
 	for laser in lasers_left:
@@ -41,10 +43,7 @@ func _on_player_shoot(pos):
 	$Projectiles.add_child(laser)
 	
 	lasers_left -= 1
-	if lasers_left < 0:
-		pass
-	else:
-		$UILayer/BulletContainer.get_child(0).queue_free()
+	$UILayer/BulletContainer.get_child(0).queue_free()
 
 func _on_extra_life(pos):
 	Global.lives += 1
@@ -52,6 +51,10 @@ func _on_extra_life(pos):
 	var life_effect: Node2D = life_effect_scene.instantiate() as Node2D
 	life_effect.global_position = pos+Vector2.UP*16
 	$Effects.add_child(life_effect)
+
+func _input(_event):
+	if Input.is_action_just_pressed("debug_restart"):
+		Global.restart(0)
 
 func change_lives():
 	$UILayer/Labels/Lives.text = "Lives: "+str(Global.lives)
@@ -62,3 +65,7 @@ func change_score():
 func display_loading():
 	$UILayer/LoadingPanel/Score.text = str(Global.score)
 	$UILayer/LoadingPanel.visible = true
+	$WinSound.play()
+
+func display_restarting():
+	$UILayer/RestartingPanel.visible = true

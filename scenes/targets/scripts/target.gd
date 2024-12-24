@@ -46,17 +46,23 @@ func hit():
 			Global.first_hit = false
 		
 		change_state(TargetState.ONE_HIT, 15)
-	
 
 func update_sprite():
 	$Sprite2D.frame = state
 
 func change_state(to_state: TargetState, points: int):
+	if state == TargetState.EXTRA_LIFE:
+		pass
+	
 	state = to_state
 	
 	Global.score += points
 	if state == TargetState.DISABLED:
 		Global.targets -= 1
+	else:
+		Global.targets = Global.targets
+	
+	$HitSound.play()
 	
 	update_sprite()
 

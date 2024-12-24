@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1idbl5u3in2k"
+path="res://.godot/imported/hit norm.wav-7a8f49cd7d26d31fc40884d7beee3bda.sample"
+
+[deps]
+
+source_file="res://sfx/hit norm.wav"
+dest_files=["res://.godot/imported/hit norm.wav-7a8f49cd7d26d31fc40884d7beee3bda.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

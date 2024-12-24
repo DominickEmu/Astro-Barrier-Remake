@@ -1,17 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpajlg3hi5ft3"]
+[gd_scene load_steps=3 format=3 uid="uid://bpajlg3hi5ft3"]
 
 [ext_resource type="Script" path="res://scenes/targets/scripts/target_path.gd" id="1_p2af3"]
 [ext_resource type="PackedScene" uid="uid://bs1h0vft55j86" path="res://scenes/path/end_point.tscn" id="2_pi6fj"]
 
-[sub_resource type="Curve2D" id="Curve2D_bsah4"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(16.049, -41.8443, -16.049, 41.8443, 248, 147, 0, 0, 0, 0, 203, 153, -24.7487, 1.76777, 24.7487, -1.76777, 225, 129, 0, 0, 0, 0, 249, 146)
-}
-point_count = 4
-
 [node name="TargetPath" type="Path2D"]
-curve = SubResource("Curve2D_bsah4")
 script = ExtResource("1_p2af3")
 metadata/_edit_group_ = true
 
@@ -24,9 +16,9 @@ begin_cap_mode = 1
 end_cap_mode = 1
 
 [node name="EndPoint" parent="." instance=ExtResource("2_pi6fj")]
-position = Vector2(248, 147)
-rotation = 1.93703
+rotates = false
 
 [node name="EndPoint2" parent="." instance=ExtResource("2_pi6fj")]
 position = Vector2(248, 147)
-rotation = 1.93703
+rotation = 1.57079
+rotates = false
